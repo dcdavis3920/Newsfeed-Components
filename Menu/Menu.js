@@ -34,24 +34,7 @@ let menuItems = [
   
 */
 
-// header.appendChild(newMenu(menuItems));function newMenu(arr) { 
-//   const nav = document.createElement('div');
-//  const links = document.createElement('ul');
-//   nav.appendChild(links);
 
-//   menuItems.forEach((link) => {
-//     const item = document.createElement('li');
-//         item.textContent = link;
-//         links.appendChild(item);
-//         item.style.cursor = 'pointer';
-//         })
-
-//         nav.classList.add('menu');
-//         menuButton.addEventListener('click', (e) => {
-//         nav.classList.toggle('menu--open');
-//          })
-//          return nav;
-//         }
 
 const header = document.querySelector('.header')
 const menuButton = document.querySelector('.menu-button')
