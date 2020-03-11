@@ -85,7 +85,17 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
-  }
+  },
+  {
+  title: 'Professional Software Development in 2019',
+  date: 'Jan 1st, 2019',
+  firstParagraph: `Not only have I heard of it, I specifically refused to tell people about hipster ipsum till now because I relish the delightful irony of a hipster concept that, despite being a glorious idea, has only 393 followers on Twitter. That’s pure hipster poetry right there! `,
+
+  secondParagraph: `Not only have I heard of it, I specifically refused to tell people about hipster ipsum till now because I relish the delightful irony of a hipster concept that, despite being a glorious idea, has only 393 followers on Twitter. That’s pure hipster poetry right there! `,
+
+  thirdParagraph: `Not only have I heard of it, I specifically refused to tell people about hipster ipsum till now because I relish the delightful irony of a hipster concept that, despite being a glorious idea, has only 393 followers on Twitter. That’s pure hipster poetry right there!`
+}
+
 ];
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
@@ -112,3 +122,44 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+
+
+
+function component1 (passTitle, passDate, passFirstParagraph, passSecondParagraph, passThirdParagraph) {
+  const article = document.createElement('div');
+  const h2 = document.createElement('h2');
+  const date = document.createElement('p');
+  const paragraph1 = document.createElement('p');
+  const paragraph2 = document.createElement('p');
+  const paragraph3 = document.createElement('p');
+  const expandButton = document.createElement('span');
+
+  article.append(h2);
+  article.append(expandButton);
+  article.append(date);
+  article.append(paragraph1);
+  article.append(paragraph2);
+  article.append(paragraph3);
+
+
+  h2.textContent = passTitle;
+  date.textContent = passDate;
+  paragraph1.textContent = passFirstParagraph;
+  paragraph2.textContent = passSecondParagraph;
+  paragraph3.textContent = passThirdParagraph;
+
+
+  expandButton.textContent = 'Expand';
+  article.classList.add('article');
+  date.classList.add('date');
+  expandButton.classList.add('expand-button');
+  expandButton.addEventListener('click', (event) => {
+    article.classList.toggle('article-open')
+  }) 
+  return article
+};
+const articles = document.querySelector('.articles');
+data.map( data => {
+  articles.append(component1(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph))
+})
